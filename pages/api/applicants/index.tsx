@@ -1,9 +1,17 @@
-const fetchApplicants = async () => {
-    const response = await fetch('https://randomuser.me/api/?results=25');
-    const applicants = await response.json();
-    return applicants.results;
+import { NextApiRequest, NextApiResponse } from "next";
+
+let applicants;
+
+export const fetchApplicants = async () => {
+    if (!applicants) {
+        const response = await fetch('https://randomuser.me/api/?results=25');
+        applicants = response.json();
+        return applicants;
+    } else {
+        return applicants;
+    }
 }
 
-export default async function handler(req, res) {
+export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
     await fetchApplicants().then(a => res.status(200).json(a));
 }

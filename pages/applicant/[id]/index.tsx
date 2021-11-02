@@ -1,23 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-import { environment } from '../../../config'
+import { fetchApplicants } from '../../api/applicants';
 
 const Applicant = ({ applicant }) => {
     return (
         <div>
             <h1>
-                {applicant.name.first}
+                {applicant?.name?.first}
             </h1>
+            <img src={applicant?.picture?.large} />
         </div>
     )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
-    const response = await fetch(`${environment}/api/applicants`);
-    let applicants: any[];
-    await response.json().then(r => applicants = r);
-    const applicant = applicants[id.toString()];
-
+    const applicants = await fetchApplicants();
+    const applicant = applicants.results[id.toString()];
     return {
         props: {
             applicant
@@ -26,12 +24,8 @@ export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const response = await fetch(`${environment}/api/applicants`);
-    const applicants = await response.json();
-    const ids: number[] = [];
-    applicants.forEach((_: any, index: number) => {
-        ids.push(index);
-    })
+    const applicants = await fetchApplicants();
+    const ids = applicants.results.map((a: any, i: number) => i)
     const paths = ids.map((id) => ({ params: { id: id.toString() } }))
 
     return {
