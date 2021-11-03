@@ -25,12 +25,12 @@ export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const applicants = await fetchApplicants();
-    const ids = applicants.results.map((a: any, i: number) => i)
+    const ids = applicants.results.map((_a: any, i: number) => i)
     const paths = ids.map((id) => ({ params: { id: id.toString() } }))
 
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
