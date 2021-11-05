@@ -1,42 +1,38 @@
-import React, { createRef, useState } from 'react';
+import React from 'react';
 import Card from './Card';
 import styles from '../styles/Carousel.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, {
+    EffectCoverflow, Autoplay
+} from 'swiper';
 
-export default function Carousel({ applicants }) {
-    const [index, setIndex] = useState(0)
-
-    const slideLeft = () => {
-        if (index - 1 >= 0) {
-            setIndex(index - 1);
-        }
-    };
-
-    const slideRight = () => {
-        if (index + 1 <= applicants.length - 1) {
-            setIndex(index + 1);
-        }
-    };
+export default function qCarousel({ applicants }) {
+    SwiperCore.use([Autoplay, EffectCoverflow]);
 
     return (
-        <div id='carousel' className={styles.carousel__container}>
-            {applicants.map((applicant: any, index: number) => {
-                let position = index > 0 ? 'nextCard' : index === 0 ?
-                    'activeCard' : 'prevCard';
-                if (position === 'activeCard')
-                    return <Card key={index} applicant={applicant} style={position} />;
-            })}
-            <FontAwesomeIcon
-                onClick={slideLeft}
-                className='leftBtn'
-                icon={faChevronLeft}
-            />
-            <FontAwesomeIcon
-                onClick={slideRight}
-                className='rightBtn'
-                icon={faChevronRight}
-            />
+        <div>
+            <Swiper effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                    "rotate": 50,
+                    "stretch": 0,
+                    "depth": 100,
+                    "modifier": 1,
+                    "slideShadows": false
+                }}
+                autoplay={{
+                    "delay": 3000,
+                    "disableOnInteraction": false
+                }}
+                className="mySwiper">
+                {applicants.map((applicant: any, index: number) => {
+                    return (<SwiperSlide key={index}>
+                        <Card applicant={applicant} index={index} />
+                    </SwiperSlide>)
+                })}
+            </Swiper>
         </div>
     )
 }

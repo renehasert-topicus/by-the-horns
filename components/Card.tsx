@@ -1,19 +1,18 @@
 import styles from '../styles/Card.module.scss';
-import Hammer from 'react-hammerjs';
+import Link from 'next/link'
 
-export default function Card({ applicant, style }) {
-    const handleSwipe = () => {
-        console.log('swipe')
-    }
+export default function Card({ applicant, index }) {
     return (
-        <>
-            <Hammer onSwipe={handleSwipe}>
-                <div className={`${styles.card} ${styles[style]}`}>
+        <Link href={{
+            pathname: '/applicant/[id]',
+            query: { id: index },
+        }}>
+            <div className={styles.card}>
+                <div className={styles.card__picture}>
                     <img src={applicant.picture.large} alt={`${applicant.name.first} ${applicant.name.last}`} />
                     <h2>{`${applicant.name.first} ${applicant.name.last}`}</h2>
-                    <h4>Solid developer</h4>
                 </div>
-            </Hammer>
-        </>
+            </div>
+        </Link>
     )
 }
