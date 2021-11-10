@@ -18,6 +18,15 @@
   }
 }
 
+@keyframes fadeInToMedOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
 @keyframes fadeAndSlideInFromRight {
   0% {
     opacity: 0;

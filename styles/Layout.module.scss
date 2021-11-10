@@ -1,13 +1,6 @@
 .layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 100vh;
-
-    &__container{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
