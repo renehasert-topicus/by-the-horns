@@ -17,7 +17,7 @@
   animation-delay: 0.2s;
 
   &__header {
-    margin: 5vh 10vw 0;
+    margin: 5vh 8vw 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,12 +37,28 @@
     flex-direction: column;
   }
 
+  @include mixins.respond(big-desktop) {
+    &__header {
+      &__title {
+        font-size: 5vw;
+      }
+    }
+  }
+
+  @include mixins.respond(tab-land) {
+    &__header {
+      &__title {
+        font-size: 8vw;
+      }
+    }
+  }
+
   @include mixins.respond(tab-port) {
     background-size: cover;
     background-position: 50% 50%;
 
     &__header {
-      margin: 5vh auto;
+      align-items: flex-end;
       justify-content: center;
 
       &__title {

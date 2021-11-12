@@ -1,3 +1,4 @@
+import React from 'react';
 import testimonialsStyles from '../styles/Testimonials.module.scss';
 
 export default function Testimonials() {

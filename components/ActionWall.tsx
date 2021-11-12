@@ -6,7 +6,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 export default function ActionWall() {
 
     const handleChevronClick = (event: React.MouseEvent) => {
-        event.preventDefault();
+        event.preventDefault;
         let carousel = document.getElementById("carousel");
         carousel && carousel.scrollIntoView({
             behavior: 'smooth'
@@ -20,7 +20,7 @@ export default function ActionWall() {
                 <div className={actionWallStyles.actionWall__buttons__button}>Get hired</div>
             </div>
             <div onClick={e => handleChevronClick(e)} className={actionWallStyles.actionWall__chevron}>
-                <FontAwesomeIcon icon={faChevronDown} size="3x" />
+                <FontAwesomeIcon icon={faChevronDown} />
             </div>
         </div>
     )
