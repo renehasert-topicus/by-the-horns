@@ -9,14 +9,15 @@
   top: 0;
   left: 0;
   height: 6vh;
-  z-index: 3;
   width: 100%;
+  z-index: 1;
 
   &__container {
+    margin: 0 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
+    width: 100%;
 
     &__logo {
       padding: 1.5rem;
@@ -27,103 +28,82 @@
     }
 
     &__links {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100vh;
+      width: 25vw;
+      background-color: var(--gray-400);
+      color: var(--gray-100);
+      font-size: 2rem;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 0.2s ease-out;
+
       ul {
-        padding: 1.5rem 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
+        margin: 4rem 0;
+        padding: 0;
         font-variant: small-caps;
+        list-style: none;
 
         li {
+          margin-bottom: 1rem;
+
           a {
-            padding: 0.3rem;
-            margin: 0 0.5rem;
+            margin: 0 4rem;
           }
 
           a:hover {
-            border-bottom: 2px solid var(--taupe-500);
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
           }
         }
+      }
+      &Active {
+        opacity: 1;
+        transform: translateX(0%);
+        transition: all 0.2s ease-in-out;
+        box-shadow: -1px 0px 10px 1px var(--gray-500);
       }
     }
 
     &__burger {
-      display: none;
+      display: block;
       cursor: pointer;
-      z-index: 3;
 
       div {
         width: 25px;
         height: 3px;
         background-color: var(--taupe-500);
         margin: 5px;
-      }
-    }
-  }
-
-  @include mixins.respond(tab-port) {
-    &__container {
-      justify-content: space-evenly;
-      width: 100%;
-
-      &__links {
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        width: 70vw;
-        background-color: var(--taupe-400);
-        color: var(--taupe-100);
-        font-size: 2rem;
-        transform: translateX(100%);
-        opacity: 0;
-        transition: all 0.2s ease-out;
-
-        ul {
-          margin: 2rem 0;
-          flex-direction: column;
-
-          li {
-            margin-bottom: 1rem;
-
-            a {
-              margin: 0 8rem;
-            }
-
-            a:hover {
-              border-bottom: 2px solid var(--taupe-100);
-            }
-          }
-        }
-
-        &Active {
-          opacity: 1;
-          transform: translateX(0%);
-          transition: all 0.2s ease-in-out;
-        }
+        transition: all 0.3s ease;
       }
 
-      &__burger {
-        display: block;
-
+      &Active {
         div {
-          transition: all 0.3s ease;
+          background-color: var(--gray-100);
         }
-        &__lineOne {
-          transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        &__lineTwo {
-          opacity: 0;
-        }
-        &__lineThree {
-          transform: rotate(45deg) translate(-5px, -6px);
-        }
-        &Active {
-          div {
-            background-color: var(--taupe-100);
-          }
-        }
+      }
+      &__lineOne {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      &__lineTwo {
+        opacity: 0;
+      }
+      &__lineThree {
+        transform: rotate(45deg) translate(-5px, -6px);
       }
     }
   }
+}
+
+.backdrop::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }

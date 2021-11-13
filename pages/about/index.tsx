@@ -1,5 +1,13 @@
+import React from "react";
+import Nav from "../../components/Nav";
+import PageLayout from "../../components/PageLayout";
+
 export default function About() {
-    return (
-        <h1>About</h1>
+    return (<>
+        <Nav />
+        <PageLayout title={"About"}>
+            blabla
+        </PageLayout>
+    </>
     )
 }

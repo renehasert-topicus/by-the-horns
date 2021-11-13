@@ -1,0 +1,30 @@
+@use "./mixins.scss" as mixins;
+@use "./animations.scss";
+@import url("https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap");
+
+.pageLayout {
+  position: absolute;
+  top: 6vh;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+
+  &__container {
+    margin: 4rem;
+
+    &__header {
+      &__title {
+        color: var(--gray-500);
+        font-family: "Zen Antique", serif;
+        animation: fadeAndSlideIn 1s;
+        font-size: 7vw;
+      }
+    }
+
+    &__main {
+      padding: 2rem;
+      animation: fadeAndSlideInFromRight 1s;
+      background-color: var(--gray-100);
+    }
+  }
+}

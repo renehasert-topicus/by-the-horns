@@ -43,6 +43,7 @@ export default function Nav() {
 
     return (
         <div className={navStyles.nav} style={getNavStyle()}>
+            <div className={`${navOpen ? navStyles.backdrop : ''}`} onClick={navOpen ? () => toggleNav(false) : null}></div>
             <div className={navStyles.nav__container}>
                 <div onClick={e => handleLogoClick(e)} className={navStyles.nav__container__logo}>
                     byTheHorns ( )
