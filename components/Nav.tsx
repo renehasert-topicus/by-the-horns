@@ -1,7 +1,7 @@
-import React, { useState, useEffect, CSSProperties } from 'react'
-import Link from 'next/link'
-import navStyles from '../styles/Nav.module.scss'
-import { useRouter } from 'next/router'
+import React, { CSSProperties, useEffect, useState } from 'react';
+import Link from 'next/link';
+import navStyles from '../styles/Nav.module.scss';
+import { useRouter } from 'next/router';
 
 export default function Nav() {
     const [navOpen, toggleNav] = useState(false);
@@ -19,36 +19,39 @@ export default function Nav() {
             background: `rgba(97, 218, 251, ${percentage})`,
             color: `rgb(${blackToWhite},${blackToWhite},${blackToWhite})`,
             borderBottom: `1px solid rgba(255,255,255, ${percentage})`
-        }
+        };
     }
 
     useEffect(() => {
         function watchScroll() {
             window.addEventListener("scroll", setScroll);
         }
+
         watchScroll();
         return watchScroll();
     });
 
     useEffect(() => {
-        toggleNav(false)
-    }, [router.pathname])
+        toggleNav(false);
+    }, [router.pathname]);
 
     const handleLogoClick = (event: React.MouseEvent) => {
         event.preventDefault();
         router.pathname === '/'
             ? window.scrollTo(0, 0)
-            : router.push('/')
-    }
+            : router.push('/');
+    };
 
     return (
         <div className={navStyles.nav} style={getNavStyle()}>
-            <div className={`${navOpen ? navStyles.backdrop : ''}`} onClick={navOpen ? () => toggleNav(false) : null}></div>
+            <div className={`${navOpen ? navStyles.backdrop : ''}`}
+                 onClick={navOpen ? () => toggleNav(false) : null}></div>
             <div className={navStyles.nav__container}>
                 <div onClick={e => handleLogoClick(e)} className={navStyles.nav__container__logo}>
                     byTheHorns ( )
                 </div>
-                <div className={`${navStyles.nav__container__links} ${navOpen ? navStyles.nav__container__linksActive : ''}`}>
+                <div
+                    className={`${navStyles.nav__container__links} ${navOpen ? navStyles.nav__container__linksActive : ''}`}>
                     <ul>
                         <li style={navOpen ? { animation: `${navStyles.fadeAndSlideInFromRight} .9s ease forwards` } : {}}>
                             <Link href="/">home</Link>
@@ -61,7 +64,8 @@ export default function Nav() {
                         </li>
                     </ul>
                 </div>
-                <div className={`${navStyles.nav__container__burger} ${navOpen ? navStyles.nav__container__burgerActive : ''}`}
+                <div
+                    className={`${navStyles.nav__container__burger} ${navOpen ? navStyles.nav__container__burgerActive : ''}`}
                     onClick={() => toggleNav(!navOpen)}>
                     <div className={`${navOpen ? navStyles.nav__container__burger__lineOne : ''}`}></div>
                     <div className={`${navOpen ? navStyles.nav__container__burger__lineTwo : ''}`}></div>
@@ -69,5 +73,5 @@ export default function Nav() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

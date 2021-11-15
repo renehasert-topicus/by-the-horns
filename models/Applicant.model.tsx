@@ -1,11 +1,9 @@
 export interface Applicant {
-    id: any;
-    name: {
-        first: string;
-        last: string;
-    }
-    picture: any
-    email: string;
-    gender: string;
-    location: any;
+    _id: any;
+    name: string;
+    image: any;
+    likability: number;
+    birthday: string;
+    stack: any;
+    additional: any;
 }

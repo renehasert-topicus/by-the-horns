@@ -3,8 +3,6 @@ import layoutStyles from '../styles/Layout.module.scss'
 import Meta from './Meta'
 
 export default function Layout({ children }) {
-
-
     return (
         <div>
             <Meta />
