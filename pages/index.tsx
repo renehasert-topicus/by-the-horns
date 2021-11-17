@@ -24,14 +24,14 @@ export default function Home({ applicants }) {
         <div className={homeStyles.container}>
             <Nav/>
             <Hero>
-                <Testimonials/>
-                <ActionWall/>
+                <Testimonials />
+                <ActionWall />
             </Hero>
             <section id="carousel" style={{ height: '100rem' }}>
                 {applicants.map((a: Applicant) => {
                     return (<div key={a._id}>
                             <h2>{a.name}</h2>
-                            <img src={urlFor(a.image).url()} height={100}/>
+                            <img src={urlFor(a.image).url()} alt="Applicant photo" height={100}/>
                         </div>
                     );
                 })}

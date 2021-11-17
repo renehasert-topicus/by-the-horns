@@ -1,0 +1,43 @@
+.tooltip {
+  display: inline-block;
+  position: relative;
+}
+.tooltip__message {
+  padding: 1.5rem;
+  position: absolute;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--tooltip-text-color);
+  background: var(--tooltip-background-color);
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  line-height: 1.5;
+  z-index: 10;
+  white-space: nowrap;
+  box-shadow: 2px 3px 5px black;
+  transition: all 1s ease-in-out;
+}
+.tooltip__message__top {
+  top: calc(var(--tooltip-margin) * -1);
+}
+.tooltip__message__right {
+  left: calc(100% + var(--tooltip-margin));
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+}
+.tooltip__message__bottom {
+  bottom: calc(var(--tooltip-margin) * -1);
+  top: 100%;
+}
+.tooltip__message__left {
+  left: auto;
+  right: calc(100% + var(--tooltip-margin));
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+}
+
+/*# sourceMappingURL=Tooltip.module.css.map */
