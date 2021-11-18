@@ -1,0 +1,26 @@
+@use "./animations.scss";
+@use "./mixins.scss" as mixins;
+
+.typing {
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    &__text {
+        border-right: 3px solid white;
+        width: 32ch;
+        opacity: 0;
+        animation: typing 2s steps(32) 2s, blink .5s step-end infinite alternate, fadeIn 0s linear 2s forwards;
+        white-space: nowrap;
+        overflow: hidden;
+        font-family: monospace;
+        font-size: 1.5em;
+    }
+    &__etc::after {
+        opacity: 1;
+        width: 41ch;
+        animation: typing 2s steps(9), blink .5s step-end infinite alternate;
+    }
+}

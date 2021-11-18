@@ -15,7 +15,7 @@ export default function Testimonials() {
                     satisfaction rate
                 </div>
             </Tooltip>
-            <Tooltip message="*if you hire 1 person, guaranteed!" direction={desktopScreen ? 'left' : 'bottom'}>
+            <Tooltip message="Terms and conditions apply." direction={desktopScreen ? 'left' : 'bottom'}>
                 <div className={testimonialsStyles.testimonials__testimonial}>
                     at least
                     <span className={testimonialsStyles.testimonials__testimonial__number}>
