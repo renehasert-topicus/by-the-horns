@@ -1,7 +1,8 @@
 import styles from '../styles/Card.module.scss';
 import Link from 'next/link'
+import { urlFor } from '../lib/sanity';
 
-export default function Card({ applicant, index }) {
+function CardComponent({ applicant, index }) {
     return (
         <Link href={{
             pathname: '/applicant/[id]',
@@ -9,10 +10,13 @@ export default function Card({ applicant, index }) {
         }}>
             <div className={styles.card}>
                 <div className={styles.card__picture}>
-                    <img src={applicant.picture.large} alt={`${applicant.name.first} ${applicant.name.last}`} />
-                    <h2>{`${applicant.name.first} ${applicant.name.last}`}</h2>
+                    <img src={urlFor(applicant?.image).url()} alt={`${applicant.name}`} />
+                    <h2>{`${applicant.name}`}</h2>
                 </div>
+                <div>{'asdf'}</div>
             </div>
         </Link>
     )
 }
+
+export default CardComponent;

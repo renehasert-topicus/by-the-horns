@@ -8,7 +8,7 @@ interface TooltipProps {
     delay?: number
 }
 
-export default function Tooltip(
+export default function TooltipComponent(
     {
         children,
         direction = 'left',

@@ -21,7 +21,7 @@
   animation: fadeAndSlideIn 2.4s forwards;
   position: absolute;
   width: 100%;
-  bottom: 0px;
+  bottom: 0;
 
   &__buttons {
     padding: 2rem;
@@ -42,7 +42,7 @@
       letter-spacing: 1px;
       font-weight: 300;
       border-radius: 2rem;
-      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+      box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
       animation: fadeAndSlideIn 2.4s forwards;
       cursor: pointer;
       user-select: none;
@@ -50,7 +50,7 @@
 
       &:hover {
         background: var(--secondary-color);
-        color: var(--gray-300);
+        color: white;
         transition: all 0.1s ease;
       }
 
@@ -61,7 +61,7 @@
 
         &:hover {
           background-color: var(--gray-300);
-          color: var(--gray-400);
+          color: white;
           transition: all 0.1s ease;
         }
       }

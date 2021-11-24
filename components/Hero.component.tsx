@@ -1,7 +1,7 @@
 import heroStyles from '../styles/Hero.module.scss'
-import Typing from './Typing';
+import TypingComponent from './Typing.component';
 
-export default function Hero({ children }) {
+export default function HeroComponent({ children }) {
     return (
         <section id='hero' className={heroStyles.hero}>
             <div className={heroStyles.hero__header}>
@@ -9,7 +9,7 @@ export default function Hero({ children }) {
                     Grab that dev
                 </div>
                 <div className={heroStyles.hero__header__typing}>
-                   <Typing />
+                   <TypingComponent />
                 </div>
             </div>
             <div className={heroStyles.hero__children}>

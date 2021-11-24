@@ -1,5 +1,14 @@
+import NavComponent from '../../components/Nav.component';
+import PageLayoutComponent from '../../components/PageLayout.component';
+import React from 'react';
+
 export default function Applicants() {
     return (
-        <h1>All applicants in a row</h1>
-    )
+        <>
+            <NavComponent/>
+            <PageLayoutComponent title={"All applicants"}>
+                Applicants go here
+            </PageLayoutComponent>
+        </>
+    );
 }

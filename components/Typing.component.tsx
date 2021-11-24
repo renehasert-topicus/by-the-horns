@@ -1,7 +1,7 @@
 import typingStyles from '../styles/Typing.module.scss';
 import React, { useEffect } from 'react';
 
-export default function Typing() {
+export default function TypingComponent() {
     let textElementRef: HTMLElement;
     const text = 'That can write cheesy effects...';
     const addText = ' and shit.';

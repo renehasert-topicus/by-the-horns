@@ -4,6 +4,6 @@ export interface Applicant {
     image: any;
     likability: number;
     birthday: string;
-    stack: any;
+    stack: [];
     additional: any;
 }

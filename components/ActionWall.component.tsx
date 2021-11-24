@@ -2,12 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import actionWallStyles from '../styles/ActionWall.module.scss'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
-export default function ActionWall() {
+function ActionWallComponent() {
 
     const handleChevronClick = (event: React.MouseEvent) => {
-        event.preventDefault;
+        event.preventDefault();
+        
         let carousel = document.getElementById("carousel");
+        
         carousel && carousel.scrollIntoView({
             behavior: 'smooth'
         });
@@ -16,8 +19,16 @@ export default function ActionWall() {
     return (
         <div className={actionWallStyles.actionWall}>
             <div className={actionWallStyles.actionWall__buttons}>
-                <div className={actionWallStyles.actionWall__buttons__button}>Hire</div>
-                <div className={actionWallStyles.actionWall__buttons__button}>Get hired</div>
+                <Link href={'#carousel'}>
+                <div className={actionWallStyles.actionWall__buttons__button}>
+                    Hire
+                </div>
+                </Link>
+                <Link href={'/get-hired'}>
+                    <div  className={actionWallStyles.actionWall__buttons__button}>
+                        Get hired
+                    </div>
+                </Link>
             </div>
             <div onClick={e => handleChevronClick(e)} className={actionWallStyles.actionWall__chevron}>
                 <FontAwesomeIcon icon={faChevronDown} />
@@ -25,3 +36,5 @@ export default function ActionWall() {
         </div>
     )
 }
+
+export default ActionWallComponent;

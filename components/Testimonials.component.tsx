@@ -1,21 +1,21 @@
 import React from 'react';
 import testimonialsStyles from '../styles/Testimonials.module.scss';
-import Tooltip from './Tooltip';
+import TooltipComponent from './Tooltip.component';
 import { useMediaQuery } from 'react-responsive'
 
-export default function Testimonials() {
+export default function TestimonialsComponent() {
     const desktopScreen = useMediaQuery({ query: '(min-width: 768px)' })
     return (
         <div className={testimonialsStyles.testimonials}>
-            <Tooltip message="This number is probably accurate." direction={desktopScreen ? 'left' : 'bottom'}>
+            <TooltipComponent message="This percentage is probably accurate." direction={desktopScreen ? 'left' : 'bottom'}>
                 <div className={testimonialsStyles.testimonials__testimonial}>
                 <span className={testimonialsStyles.testimonials__testimonial__number}>
                     97%
                 </span>
                     satisfaction rate
                 </div>
-            </Tooltip>
-            <Tooltip message="Terms and conditions apply." direction={desktopScreen ? 'left' : 'bottom'}>
+            </TooltipComponent>
+            <TooltipComponent message="Terms and conditions apply." direction={desktopScreen ? 'left' : 'bottom'}>
                 <div className={testimonialsStyles.testimonials__testimonial}>
                     at least
                     <span className={testimonialsStyles.testimonials__testimonial__number}>
@@ -23,7 +23,7 @@ export default function Testimonials() {
                 </span>
                     hire per visit
                 </div>
-            </Tooltip>
+            </TooltipComponent>
         </div>
     );
 }

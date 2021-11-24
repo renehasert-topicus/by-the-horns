@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const Meta = ({ title, keywords, description }) => {
+const MetaComponent = ({ title, keywords, description }) => {
   return (
     <Head>
       <title>{title}</title>
@@ -12,10 +12,10 @@ const Meta = ({ title, keywords, description }) => {
   )
 }
 
-Meta.defaultProps = {
+MetaComponent.defaultProps = {
   title: 'byTheHorns()',
   keywords: 'web developers, react, javascript, programmers',
   description: `grab('yourNewEmployee')`,
 }
 
-export default Meta
+export default MetaComponent

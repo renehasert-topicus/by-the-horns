@@ -1,40 +1,24 @@
 import homeStyles from '../styles/Home.module.scss';
 import React from 'react';
-import Hero from '../components/Hero';
-import ActionWall from '../components/ActionWall';
-import Testimonials from '../components/Testimonials';
-import Nav from '../components/Nav';
-import { sanityClient } from '../lib/sanity.server';
-import { urlFor } from '../lib/sanity';
+import HeroComponent from '../components/Hero.component';
+import ActionWallComponent from '../components/ActionWall.component';
+import TestimonialsComponent from '../components/Testimonials.component';
+import NavComponent from '../components/Nav.component';
+import { applicantsQuery } from '../queries/applicants.query';
 import { GetStaticProps } from 'next';
-import { Applicant } from '../models/Applicant.model';
-
-const applicantsQuery = `* [_type == 'applicant']{
-_id,
-name,
-birthday,
-likability,
-image,
-stack,
-additional
-}`;
+import { sanityClient } from '../lib/sanity.server';
+import CarouselComponent from '../components/Carousel.component';
 
 export default function Home({ applicants }) {
     return (
-        <div className={homeStyles.container}>
-            <Nav/>
-            <Hero>
-                <Testimonials />
-                <ActionWall />
-            </Hero>
+        <div id="home" className={homeStyles.container}>
+            <NavComponent/>
+            <HeroComponent>
+                <TestimonialsComponent/>
+                <ActionWallComponent/>
+            </HeroComponent>
             <section id="carousel" style={{ height: '100rem' }}>
-                {applicants.map((a: Applicant) => {
-                    return (<div key={a._id}>
-                            <h2>{a.name}</h2>
-                            <img src={urlFor(a.image).url()} alt="Applicant photo" height={100}/>
-                        </div>
-                    );
-                })}
+                <CarouselComponent applicants={applicants}></CarouselComponent>
             </section>
         </div>
     );

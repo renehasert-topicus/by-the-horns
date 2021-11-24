@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from './Card';
+import CardComponent from './Card.component';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, EffectCoverflow } from 'swiper';
 
-export default function Carousel({ applicants }) {
+export default function CarouselComponent({ applicants }) {
     SwiperCore.use([Autoplay, EffectCoverflow]);
 
     return (
@@ -26,7 +26,7 @@ export default function Carousel({ applicants }) {
                     className="mySwiper">
                 {applicants.map((applicant: any, index: number) => {
                     return (<SwiperSlide key={index}>
-                        <Card applicant={applicant} index={index}/>
+                        <CardComponent applicant={applicant} index={index}/>
                     </SwiperSlide>);
                 })}
             </Swiper>

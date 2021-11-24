@@ -3,28 +3,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap");
 
 .pageLayout {
-  position: absolute;
-  top: 6vh;
-  left: 0;
-  width: 100%;
-  z-index: -1;
+    position: absolute;
+    top: 6vh;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('/assets/images/horns3.jpg'),
+    linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)) no-repeat center 0;
+    background-blend-mode: lighten;
 
-  &__container {
-    margin: 4rem;
+    &__container {
+        margin: 4rem;
 
-    &__header {
-      &__title {
-        color: var(--gray-500);
-        font-family: "Zen Antique", serif;
-        animation: fadeAndSlideIn 1s;
-        font-size: 7vw;
-      }
+        &__header {
+            &__title {
+                color: var(--gray-500);
+                font-family: "Zen Antique", serif;
+                animation: fadeAndSlideIn 1s;
+                font-size: 7vw;
+            }
+        }
+
+        &__main {
+            padding: 2rem;
+            animation: fadeAndSlideInFromRight 1s;
+            background-color: var(--gray-500);
+            color: var(--gray-100);
+            border-radius: .5rem;
+            line-height: 1.5rem;
+            letter-spacing: .5px;
+        }
     }
-
-    &__main {
-      padding: 2rem;
-      animation: fadeAndSlideInFromRight 1s;
-      background-color: var(--gray-100);
-    }
-  }
 }

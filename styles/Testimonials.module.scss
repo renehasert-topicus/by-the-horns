@@ -39,6 +39,7 @@
   }
 
   @include mixins.respond(tab-port) {
+    margin: 14vh 8vw;
     justify-content: center;
     flex-direction: row;
     

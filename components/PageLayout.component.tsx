@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import pageStyles from '../styles/PageLayout.module.scss'
 
-function PageLayout({ children, title }: { children: ReactNode, title: string }) {
+function PageLayoutComponent({ children, title }: { children: ReactNode, title: string }) {
     return (
         <div className={pageStyles.pageLayout}>
             <div className={pageStyles.pageLayout__container}>
@@ -18,5 +18,5 @@ function PageLayout({ children, title }: { children: ReactNode, title: string })
     )
 }
 
-export default PageLayout
+export default PageLayoutComponent
 
