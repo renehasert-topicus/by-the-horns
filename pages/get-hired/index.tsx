@@ -1,8 +1,8 @@
 import NavComponent from '../../components/Nav.component';
 import PageLayoutComponent from '../../components/PageLayout.component';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export default function GetHired() {
+function GetHired(): ReactElement {
     return (
         <>
             <NavComponent/>
@@ -15,3 +15,5 @@ export default function GetHired() {
         </>
     );
 }
+
+export default GetHired;

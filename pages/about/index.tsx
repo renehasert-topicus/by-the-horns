@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import NavComponent from "../../components/Nav.component";
 import PageLayoutComponent from "../../components/PageLayout.component";
 
-export default function About() {
+function About(): ReactElement {
     return (
         <>
             <NavComponent/>
@@ -14,3 +14,5 @@ export default function About() {
         </>
     );
 }
+
+export default About;

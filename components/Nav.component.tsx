@@ -1,9 +1,9 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, ReactElement, useEffect, useState } from 'react';
 import Link from 'next/link';
 import navStyles from '../styles/Nav.module.scss';
 import { useRouter } from 'next/router';
 
-export default function NavComponent() {
+function NavComponent(): ReactElement {
     const [navOpen, toggleNav] = useState(false);
     const [scrollY, setScrollY] = useState(0.0);
     const router = useRouter();
@@ -45,7 +45,7 @@ export default function NavComponent() {
     return (
         <div className={navStyles.nav} style={getNavStyle()}>
             <div className={`${navOpen ? navStyles.backdrop : ''}`}
-                 onClick={navOpen ? () => toggleNav(false) : null}></div>
+                 onClick={navOpen ? () => toggleNav(false) : undefined}></div>
             <div className={navStyles.nav__container}>
                 <div onClick={e => handleLogoClick(e)} className={navStyles.nav__container__logo}>
                     byTheHorns ( )
@@ -84,3 +84,5 @@ export default function NavComponent() {
         </div>
     );
 }
+
+export default NavComponent;

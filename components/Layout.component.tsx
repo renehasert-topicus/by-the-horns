@@ -1,16 +1,16 @@
-import React from 'react'
-import layoutStyles from '../styles/Layout.module.scss'
-import MetaComponent from './Meta.component'
+import React, { ReactElement } from 'react';
+import layoutStyles from '../styles/Layout.module.scss';
+import MetaComponent from './Meta.component';
 
-function LayoutComponent({ children }) {
+function LayoutComponent({ children }: { children: ReactElement<any, any> }): ReactElement {
     return (
         <div>
-            <MetaComponent />
+            <MetaComponent/>
             <div className={layoutStyles.layout}>
                 {children}
             </div>
         </div>
-    )
+    );
 }
 
 export default LayoutComponent;

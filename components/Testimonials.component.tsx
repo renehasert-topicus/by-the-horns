@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import testimonialsStyles from '../styles/Testimonials.module.scss';
 import TooltipComponent from './Tooltip.component';
 import { useMediaQuery } from 'react-responsive'
 
-export default function TestimonialsComponent() {
+function TestimonialsComponent(): ReactElement {
     const desktopScreen = useMediaQuery({ query: '(min-width: 768px)' })
     return (
         <div className={testimonialsStyles.testimonials}>
@@ -27,3 +27,5 @@ export default function TestimonialsComponent() {
         </div>
     );
 }
+
+export default TestimonialsComponent;

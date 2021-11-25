@@ -1,31 +1,34 @@
 import typingStyles from '../styles/Typing.module.scss';
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
-export default function TypingComponent() {
-    let textElementRef: HTMLElement;
+function TypingComponent(): ReactElement {
+    let textElementRef: HTMLElement | null = new HTMLElement();
     const text = 'That can write cheesy effects...';
     const addText = ' and shit.';
-    
+
     useEffect(() => {
         textElementRef = document.getElementById('typingText');
-        if (!textElementRef.style.width) {
-            textElementRef.style.width = `${text.length}ch`;
+        if (textElementRef) {
+            if (!textElementRef?.style?.width) {
+                textElementRef.style.width = `${text.length}ch`;
+            }
+
+            setTimeout(() => {
+                const widthInterval = setInterval(() => {
+                    const width = textElementRef?.style.width;
+
+                    if (width === `${(addText.length + text.length) - 1}ch`) {
+                        clearInterval(widthInterval);
+                    }
+                    if (width && textElementRef) {
+                        textElementRef.style.width = `${parseInt(width.replace(/\D+/g, '')) + 1}ch`;
+                    }
+                }, 100);
+
+            }, 6000);
         }
-        
-        setTimeout(() => {
-            const widthInterval = setInterval(() => {
-                const width = textElementRef.style.width;
-
-                if (width === `${(addText.length + text.length) - 1}ch`) {
-                    clearInterval(widthInterval);
-                }
-                
-                textElementRef.style.width = `${parseInt(width.replace(/\D+/g, '')) + 1}ch`;
-            }, 100);
-
-        }, 6000);
     }, [textElementRef]);
-    
+
     return (
         <div className={typingStyles.typing}>
             <div id={'typingText'} className={typingStyles.typing__text}>
@@ -34,3 +37,5 @@ export default function TypingComponent() {
         </div>
     );
 }
+
+export default TypingComponent;

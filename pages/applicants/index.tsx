@@ -1,8 +1,8 @@
 import NavComponent from '../../components/Nav.component';
 import PageLayoutComponent from '../../components/PageLayout.component';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export default function Applicants() {
+function Applicants(): ReactElement {
     return (
         <>
             <NavComponent/>
@@ -12,3 +12,5 @@ export default function Applicants() {
         </>
     );
 }
+
+export default Applicants;

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import CardComponent from './Card.component';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, EffectCoverflow } from 'swiper';
+import { Applicant } from '../models/Applicant.model';
 
-export default function CarouselComponent({ applicants }) {
+function CarouselComponent({ applicants }: { applicants: Applicant[] }): ReactElement {
     SwiperCore.use([Autoplay, EffectCoverflow]);
 
     return (
@@ -33,3 +34,5 @@ export default function CarouselComponent({ applicants }) {
         </div>
     );
 }
+
+export default CarouselComponent;

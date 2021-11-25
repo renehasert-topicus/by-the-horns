@@ -3,22 +3,22 @@ import tooltipStyles from "../styles/Tooltip.module.scss";
 
 interface TooltipProps {
     message: string,
-    children?: ReactElement,
+    children?: ReactElement | ReactElement[],
     direction?: string,
     delay?: number
 }
 
-export default function TooltipComponent(
+function TooltipComponent(
     {
         children,
         direction = 'left',
         message,
         delay = 200
-    }: TooltipProps) {
+    }: TooltipProps): ReactElement {
     const [active, setActive] = useState(false);
     let timeout: NodeJS.Timeout;
     const directionClassName = `tooltip__message__${direction}`;
-    
+
     const showTooltip = () => {
         timeout = setTimeout(() => {
             setActive(true);
@@ -44,4 +44,6 @@ export default function TooltipComponent(
             )}
         </div>
     );
-};
+}
+
+export default TooltipComponent;

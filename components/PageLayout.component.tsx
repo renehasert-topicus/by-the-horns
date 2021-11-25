@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react';
 import pageStyles from '../styles/PageLayout.module.scss'
 
-function PageLayoutComponent({ children, title }: { children: ReactNode, title: string }) {
+function PageLayoutComponent({ children, title }: { children: ReactNode, title: string }): ReactElement {
     return (
         <div className={pageStyles.pageLayout}>
             <div className={pageStyles.pageLayout__container}>

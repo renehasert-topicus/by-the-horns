@@ -1,20 +1,23 @@
-import heroStyles from '../styles/Hero.module.scss'
+import heroStyles from '../styles/Hero.module.scss';
 import TypingComponent from './Typing.component';
+import { ReactElement } from 'react';
 
-export default function HeroComponent({ children }) {
+function HeroComponent({ children }: { children: ReactElement<any, any>[] }): ReactElement {
     return (
-        <section id='hero' className={heroStyles.hero}>
+        <section id="hero" className={heroStyles.hero}>
             <div className={heroStyles.hero__header}>
                 <div className={heroStyles.hero__header__title}>
                     Grab that dev
                 </div>
                 <div className={heroStyles.hero__header__typing}>
-                   <TypingComponent />
+                    <TypingComponent/>
                 </div>
             </div>
             <div className={heroStyles.hero__children}>
                 {children}
             </div>
-        </section >
-    )
+        </section>
+    );
 }
+
+export default HeroComponent;
