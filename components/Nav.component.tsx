@@ -12,7 +12,10 @@ function NavComponent(): ReactElement {
         setScrollY(window.scrollY < 50 ? window.scrollY : 50);
     }
 
-    function getNavStyle(): CSSProperties {
+    function getNavStyle(): CSSProperties | undefined {
+        if (router.pathname !== '/') {
+            return;
+        }
         const percentage = scrollY * 0.02;
         const blackToWhite = 255 * percentage;
         return {

@@ -50,7 +50,7 @@
 
       &:hover {
         background: var(--secondary-color);
-        color: white;
+        color: var(--base-white);
         transition: all 0.1s ease;
       }
 
@@ -61,7 +61,7 @@
 
         &:hover {
           background-color: var(--gray-300);
-          color: white;
+          color: var(--base-white);
           transition: all 0.1s ease;
         }
       }
@@ -82,6 +82,7 @@
 
     &:hover {
       animation: arrow 0.7s linear infinite;
+      color: var(--base-white);
     }
 
     &:active {
