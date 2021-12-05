@@ -10,7 +10,7 @@ import { sanityClient } from '../lib/sanity.server';
 import CarouselComponent from '../components/Carousel.component';
 import { Applicant } from '../models/Applicant.model';
 
-function Home({ applicants }: {applicants: Applicant[]}): ReactElement {
+function Home({ applicants }: { applicants: Applicant[] }): ReactElement {
     return (
         <div id="home" className={homeStyles.container}>
             <NavComponent/>
@@ -18,8 +18,8 @@ function Home({ applicants }: {applicants: Applicant[]}): ReactElement {
                 <TestimonialsComponent/>
                 <ActionWallComponent/>
             </HeroComponent>
-            <section id="carousel" style={{ height: '100rem' }}>
-                <CarouselComponent applicants={applicants} />
+            <section id="carousel" style={{ height: '100rem', zIndex: -1 }}>
+                <CarouselComponent applicants={applicants}/>
             </section>
         </div>
     );

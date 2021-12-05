@@ -28,8 +28,8 @@ function NavComponent(): ReactElement {
         }
 
         watchScroll();
-        return watchScroll();
-    });
+        return () => window.removeEventListener('scroll', setScroll);
+    }, []);
 
     useEffect(() => {
         toggleNav(false);
@@ -45,7 +45,7 @@ function NavComponent(): ReactElement {
     return (
         <div className={navStyles.nav} style={getNavStyle()}>
             <div className={`${navOpen ? navStyles.backdrop : ''}`}
-                 onClick={navOpen ? () => toggleNav(false) : undefined}></div>
+                 onClick={navOpen ? () => toggleNav(false) : undefined}/>
             <div className={navStyles.nav__container}>
                 <div onClick={e => handleLogoClick(e)} className={navStyles.nav__container__logo}>
                     byTheHorns ( )
@@ -76,9 +76,9 @@ function NavComponent(): ReactElement {
                 <div
                     className={`${navStyles.nav__container__burger} ${navOpen ? navStyles['nav__container__burger--open'] : ''}`}
                     onClick={() => toggleNav(!navOpen)}>
-                    <div className={`${navOpen ? navStyles.nav__container__burger__lineOne : ''}`}></div>
-                    <div className={`${navOpen ? navStyles.nav__container__burger__lineTwo : ''}`}></div>
-                    <div className={`${navOpen ? navStyles.nav__container__burger__lineThree : ''}`}></div>
+                    <div className={`${navOpen ? navStyles.nav__container__burger__lineOne : ''}`}/>
+                    <div className={`${navOpen ? navStyles.nav__container__burger__lineTwo : ''}`}/>
+                    <div className={`${navOpen ? navStyles.nav__container__burger__lineThree : ''}`}/>
                 </div>
             </div>
         </div>

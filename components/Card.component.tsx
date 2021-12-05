@@ -17,7 +17,6 @@ function CardComponent({ applicant, index }: {applicant: Applicant, index: numbe
                     <img src={imageSource} alt={`${applicant.name}`} />
                     <h2>{`${applicant.name}`}</h2>
                 </div>
-                <div>{'asdf'}</div>
             </div>
         </Link>
     )

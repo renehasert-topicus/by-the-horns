@@ -3,12 +3,13 @@ import CardComponent from './Card.component';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, EffectCoverflow } from 'swiper';
 import { Applicant } from '../models/Applicant.model';
+import carouselStyles from '../styles/Carousel.module.scss';
 
 function CarouselComponent({ applicants }: { applicants: Applicant[] }): ReactElement {
     SwiperCore.use([Autoplay, EffectCoverflow]);
 
     return (
-        <div>
+        <div className={carouselStyles.carousel}>
             <Swiper effect={'coverflow'}
                     grabCursor={true}
                     centeredSlides={true}

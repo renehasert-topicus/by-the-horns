@@ -9,7 +9,7 @@ function ActionWallComponent() {
     const handleChevronClick = (event: React.MouseEvent) => {
         event.preventDefault();
         
-        let carousel = document.getElementById("carousel");
+        let carousel = document.getElementById('carousel');
         
         carousel && carousel.scrollIntoView({
             behavior: 'smooth'
@@ -31,7 +31,7 @@ function ActionWallComponent() {
                 </Link>
             </div>
             <div onClick={e => handleChevronClick(e)} className={actionWallStyles.actionWall__chevron}>
-                <FontAwesomeIcon icon={faChevronDown} />
+                <FontAwesomeIcon icon={faChevronDown} size="2x" />
             </div>
         </div>
     )
