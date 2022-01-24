@@ -18,7 +18,7 @@ function Home({ applicants }: { applicants: Applicant[] }): ReactElement {
                 <StatsComponent/>
                 <ActionWallComponent/>
             </HeroComponent>
-            <section id="carousel" style={{ height: '100rem', zIndex: -1 }}>
+            <section id="carousel" style={{ height: '100rem' }}>
                 <CarouselComponent applicants={applicants}/>
             </section>
         </div>
