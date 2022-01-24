@@ -9,7 +9,7 @@ import { DateTime } from 'luxon';
 import { Applicant } from '../../../models/Applicant.model';
 
 const Applicant = ({ applicant }: { applicant: Applicant }): ReactElement => {
-    const birthday = DateTime.fromSQL(applicant.birthday).toLocaleString(DateTime.DATE_FULL);
+    const birthday = DateTime.fromSQL(applicant?.birthday).toLocaleString(DateTime.DATE_FULL);
     const imageSource = urlFor(applicant?.image).url() || undefined;
     
     return (
